@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aso Ezat Abdulla - 1st Assignment</title>
+    <style>
+        body
+        {
+            background-color: #FFE1F0;
+            font-size: 20px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .div1
+        {
+            height: 100px;
+            width: 670px;
+            margin-top: 60px;
+            margin-left: 22%;
+            margin-bottom: 50px;
+            padding:70px;
+            border:6px solid #E94F19;
+            background-color: pink;
+            /*box-shadow: inset 0px 0px 20px rgb(185,103,117);*/
+            box-shadow: inset -8px -8px 12px rgb(185,103,117), inset 8px 8px 12px rgb(201,95,114);
+            border-radius: 20px;
+        }
+
+        .divYourName
+        {
+            margin-left: 30px;
+            float: left;
+        }
+
+        .divPartnerName
+        {
+            float: left;
+            margin-left: 30px;
+        }
+
+        .sp
+        {
+            margin-left: 30px;
+            height: 116px;
+            border:2px solid #FFF1B0;
+            float: left;
+            /*display: block;*/
+            background-color: #E94F19;
+        }
+
+        #print, a
+        {
+            display: flex;
+            justify-content: center;
+            background-color: #E94F19;
+            margin: 4px;
+            padding: 10px 30px;
+            color: #fff;
+            color: black;
+            font-size: 22px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border:2px solid #FFF1B0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Love Meter</h1>
+    <div class="div1">
+        <div class="divYourName">
+            Your Name: <br> <input type="text" placeholder="Your Name" id="NameOne"> <br><br>
+
+            <input type="radio" name="genderA" id="you_Male" value="Male"> Male <br>
+            <input type="radio" name="genderA" id="you_Female" value="Female"> Female
+        </div>
+        <span class="sp">&nbsp;</span>
+        <div class="divYourName">
+            Partner's Name: <br> <input type="text" placeholder="Partner's Name" id="NameTwo"> <br><br>
+            <input type="radio" name="genderB" id="part_Male" value="Male"> Male <br>
+            <input type="radio" name="genderB" id="part_Female" value="Female"> Female
+        </div>
+        <span class="sp">&nbsp;</span>
+        <div class="divYourName">
+            <a href="#" onclick="love()">Calculate</a> <!-- test -->
+            <p id="print">0% &#10084;</p>
+        </div>
+    </div>
+
+
+    <script>
+        function love()
+        {
+            var name1 = document.getElementById("NameOne").value;
+            var name2 = document.getElementById("NameTwo").value;
+
+            var y_Male = document.getElementById("you_Male").checked;
+            var y_Female = document.getElementById("you_Female").checked;
+
+            var p_Male = document.getElementById("part_Male").checked;
+            var p_Female = document.getElementById("part_Female").checked;
+
+            if(name1.length<=0 || name2.length<=0)
+            {
+                alert("Enter a Name");
+            }
+            else if ((y_Male || y_Female) == false || (p_Male || p_Female) == false)
+            {
+                alert("Select Gender");
+            }
+            else if ((y_Male && p_Male) || (y_Female && p_Female))
+            {
+                alert("Change Gender");
+            }
+            else
+            {
+                var random = Math.floor(Math.random()*100);
+                document.getElementById("print").innerHTML = random + "% &#10084;";
+                // alert(name1 + " & " + name2 + " = " + random + "%");
+
+            }
+        }
+    </script>
+</body>
+</html>
